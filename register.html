@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>用户注册</title>
+	</head>
+	<body>
+		<form action="./register.php" method="post">
+			<div>
+				<label>用户名</label><input id="usr_name" name="user_name" type="text"/> 
+			</div>
+			<div>
+				<label>密码</label><input name="usr_pwd" type="password"/>
+			</div>
+			<div>
+				<label>密码重复</label><input name="user_passwd_re" type="password"/>
+			</div>
+			<div>
+				<input id = "submit"type="submit" value="登录" />
+			</div>
+			<script type="text/javascript">
+				var usr_name = document.getElementById('usr_name');
+				var usr_pwd = document.getElementById('usr_pwd');
+				var btn_submit = document.getElementById('submit');
+				btn_submit.onclick = function(){
+					window.close();
+				}
+			</script>
+		</form>
+	</body>
+</html>

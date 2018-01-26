@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>登录</title>
+	</head>
+	<body>
+		<form action="./login.php" method="post">
+			<div>
+				<label>用户名</label><input name="user_name" type="text"/> 
+			</div>
+			<div>
+				<label>密码</label><input name="user_password" type="password"/>
+			</div>
+			<div>
+				<input id = "submit"type="submit" value="登录" />
+			</div>
+			<script type="text/javascript">
+				var btn_submit = document.getElementById('submit');
+				btn_submit.onclick = function(){
+					window.close();
+				}
+			</script>
+		</form>
+	</body>
+</html>

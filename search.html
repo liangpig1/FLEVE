@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>搜索</title>
+	</head>
+	<body>
+		<form action="" method="get">
+			</div>
+			<input type=text name="keyWord" />
+			<input id = "submit" type="submit" value="搜索" />
+			<script type="text/javascript">
+				var btn_submit = document.getElementById('submit');
+				btn_submit.onclick = function(){
+					window.returnValue = document.getElementsByTagName('input')[0].value;
+					window.close();
+				}
+			</script>
+		</form>
+	</body>
+</html>
+
