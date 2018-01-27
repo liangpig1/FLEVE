@@ -4,23 +4,23 @@ Jigsaw.object.Primitive = function(initialize, config) {
 		this.id = null;
 
 		// life of the object.Primitive null represent the object.Primitive will last until stage ends
-		if (config.life === undefined || config.life === null) 
+		if (config.life === undefined || config.life === null)
 			this.life = 0; else this.life = config.life;
 		// record the time when the object.Primitive is added to the stage works only when
 		// this.life is not null or undefined
 		this.addtime = 0;
 
 		// Free Render
-		if (config.renderFunc === undefined || config.renderFunc === null) 
-			this.render = null; 
+		if (config.renderFunc === undefined || config.renderFunc === null)
+			this.render = null;
 		else this.render = config.renderFunc;
 
-		// suppory physics effect	
-		if (config.physics === undefined || config.physics === null) 
+		// suppory physics effect
+		if (config.physics === undefined || config.physics === null)
 			this.physics = 0; else this.physics = config.physics;
 
 		//buffer
-		if (config.buff === undefined || config.buff === null) this.buff = false; 
+		if (config.buff === undefined || config.buff === null) this.buff = false;
 			else this.buff = config.buff;
 		this.buff_canvas = null;
 		this.buff_ctx = null;
@@ -28,7 +28,7 @@ Jigsaw.object.Primitive = function(initialize, config) {
 			w: config.buf_width,
 			h: config.buf_height
 		};
-		if (!this.buff) {	
+		if (!this.buff) {
 			this.buff_changed = false;
 			this.buff_size.width = 0;
 			this.buff_size.height = 0;
@@ -42,12 +42,12 @@ Jigsaw.object.Primitive = function(initialize, config) {
 		}
 
 		// position of the object.Primitive
-		if (config.x === undefined || config.x === null) this.x = 0; 
+		if (config.x === undefined || config.x === null) this.x = 0;
 			else this.x = config.x;
-		if (config.y === undefined || config.y === null) this.y = 0; 
+		if (config.y === undefined || config.y === null) this.y = 0;
 			else this.y = config.y;
 		// angle of the object.Primitive
-		if (config.angle === undefined || config.angle === null) this.angle = 0; 
+		if (config.angle === undefined || config.angle === null) this.angle = 0;
 			else this.angle = config.angle;
 		// opacity of the object.Primitive
 		if (config.opacity === undefined || config.opacity === null) this.opacity = 1.0;
@@ -77,7 +77,7 @@ Jigsaw.object.Primitive = function(initialize, config) {
 				step_x: 0,
 				step_y: 0,
 				next: null,
-				time: 0 
+				time: 0
 		};
 
 		this.tween_angle = {
@@ -85,7 +85,7 @@ Jigsaw.object.Primitive = function(initialize, config) {
 			dest_ang: 0,
 			step_x: 0,
 			next: null,
-			time: 0 
+			time: 0
 		};
 
 		this.events = {
@@ -165,7 +165,7 @@ Jigsaw.object.Primitive.prototype.twMotionRender = function()
 			this.setPos(this.x + this.tween_motion.step_x, this.y + this.tween_motion.step_y);
 			this.tween_motion.time -= this.scene.fps;
 		}
-	}	
+	}
 }
 
 Jigsaw.object.Primitive.prototype.twAngleRender = function()
@@ -183,7 +183,7 @@ Jigsaw.object.Primitive.prototype.twAngleRender = function()
 			this.setAngle(this.angle + this.tween_angle.step_angle);
 			this.tween_angle.time -= this.scene.fps;
 		}
-	}	
+	}
 }
 
 Jigsaw.object.Primitive.prototype.bind_motion = function(dx, dy, time, nextfunc)
@@ -331,8 +331,8 @@ Jigsaw.object.Primitive.prototype.unmount_sfx = function(iter) {
 
 Jigsaw.object.Image = function(config) {
 	//source image
-	if (config.image === undefined) this.image = null; 
-	else this.image = config.image;
+	if (config.img === undefined) this.image = null;
+	else this.image = config.img;
 
 	// offset in the source image
 	if (config.sx === null || config.sx === undefined) this.sx = 0;
@@ -359,10 +359,10 @@ Jigsaw.object.Image = function(config) {
 		step_w: 0,
 		step_h: 0,
 		next: null,
-		time: 0 
+		time: 0
 	};
 
-	Jigsaw.object.Primitive.call(this, true, 
+	Jigsaw.object.Primitive.call(this, true,
 		{
 			life: config.life,
 			buff: config.buff,
@@ -463,9 +463,9 @@ Jigsaw.object.Image.prototype.Render = function(){
 		var destw, desth;
 		destw = this.buff_size.w;
 		desth = this.buff_size.h;
-		ctx.drawImage(this.buff_canvas, 
+		ctx.drawImage(this.buff_canvas,
 				0, 0, this.buff_size.w, this.buff_size.h,
-				this.x - destw / 2, this.y - desth /2, 
+				this.x - destw / 2, this.y - desth /2,
 				destw, desth);
 	}
 	else {
@@ -526,9 +526,9 @@ Jigsaw.object.Rectangle = function(config)
 	}
 
 	//fillcolor && stroke_color of the rectangle
-	if (config.fill_color === undefined) this.fill_color = null; 
+	if (config.fill_color === undefined) this.fill_color = null;
 	else this.fill_color = config.fill_color;
-	if (config.stroke_color === undefined) this.stroke_color = null; 
+	if (config.stroke_color === undefined) this.stroke_color = null;
 	else this.stroke_color = config.stroke_color;
 
 	this.tween_shape = {
@@ -538,10 +538,10 @@ Jigsaw.object.Rectangle = function(config)
 			step_w: 0,
 			step_h: 0,
 			next: null,
-			time: 0 
+			time: 0
 	};
 
-	Jigsaw.object.Primitive.call(this, true, 
+	Jigsaw.object.Primitive.call(this, true,
 			{
 				life: config.life,
 		buff: config.buff,
@@ -641,9 +641,9 @@ Jigsaw.object.Rectangle.prototype.Render = function(){
 		var destw, desth;
 		destw = this.buff_size.w;
 		desth = this.buff_size.h;
-		ctx.drawImage(this.buff_canvas, 
+		ctx.drawImage(this.buff_canvas,
 				0, 0, this.buff_size.w, this.buff_size.h,
-				this.x - destw / 2, this.y - desth /2, 
+				this.x - destw / 2, this.y - desth /2,
 				destw, desth);
 	}
 	else {
@@ -682,7 +682,7 @@ Jigsaw.object.Rectangle.prototype._render_ = function(ctx, dx, dy){
 		ctx.stroke();
 		ctx.strokeStyle = tmpSS;
 	}
-	
+
 	ctx.globalAlpha = tmpGA;
 
 	iter = this.sfx.divide;
@@ -706,9 +706,9 @@ Jigsaw.object.Circle = function(config)
 	}
 
 	//fillcolor && stroke_color of the rectangle
-	if (config.fill_color === undefined) this.fill_color = null; 
+	if (config.fill_color === undefined) this.fill_color = null;
 		else this.fill_color = config.fill_color;
-	if (config.stroke_color === undefined) this.stroke_color = null; 
+	if (config.stroke_color === undefined) this.stroke_color = null;
 		else this.stroke_color = config.stroke_color;
 
 	this.tween_shape = {
@@ -716,10 +716,10 @@ Jigsaw.object.Circle = function(config)
 		dest_r: 0,
 		step_r: 0,
 		next: null,
-		time: 0 
+		time: 0
 	};
 
-	Jigsaw.object.Primitive.call(this, true, 
+	Jigsaw.object.Primitive.call(this, true,
 		{
 			life: config.life,
 			buff: config.buff,
@@ -807,9 +807,9 @@ Jigsaw.object.Circle.prototype.Render = function(){
 		var destw, desth;
 		destw = this.buff_size.w;
 		desth = this.buff_size.h;
-		ctx.drawImage(this.buff_canvas, 
+		ctx.drawImage(this.buff_canvas,
 				0, 0, this.buff_size.w, this.buff_size.h,
-				this.x - destw / 2, this.y - desth /2, 
+				this.x - destw / 2, this.y - desth /2,
 				destw, desth);
 	}
 	else {
@@ -848,7 +848,7 @@ Jigsaw.object.Circle.prototype._render_ = function(ctx, dx, dy){
 		ctx.stroke();
 		ctx.strokeStyle = tmpSS;
 	}
-	
+
 	ctx.globalAlpha = tmpGA;
 
 	iter = this.sfx.divide;
@@ -863,11 +863,11 @@ Jigsaw.object.Circle.prototype._render_ = function(ctx, dx, dy){
 
 Jigsaw.object.StaticText = function(config)
 {
-	if (config.text === undefined || config.text === null) this.text = "";
-		else this.text = config.text;
-	if (config.fill_color === undefined) this.fill_color = null; 
+	if (config.str === undefined || config.str === null) this.text = "";
+		else this.text = config.str;
+	if (config.fill_color === undefined) this.fill_color = null;
 		else this.fill_color = config.fill_color;
-	if (config.stroke_color === undefined) this.stroke_color = null; 
+	if (config.stroke_color === undefined) this.stroke_color = null;
 	else this.stroke_color = config.stroke_color;
 
 	if (config.font !== undefined && config.font !== null) this.font = config.font; //TODO define the default font
@@ -875,7 +875,7 @@ Jigsaw.object.StaticText = function(config)
 	else this.width = config.width;
 	if (config.height=== undefined || config.height=== null) this.height= 0;
 	else this.height = config.height;
-	Jigsaw.object.Primitive.call(this, true, 
+	Jigsaw.object.Primitive.call(this, true,
 	{
 		life: config.life,
 		buff: config.buff,
@@ -896,9 +896,9 @@ Jigsaw.object.StaticText.prototype.Render = function(){
 		var destw, desth;
 		destw = this.buff_size.w;
 		desth = this.buff_size.h;
-		ctx.drawImage(this.buff_canvas, 
+		ctx.drawImage(this.buff_canvas,
 				0, 0, this.buff_size.w, this.buff_size.h,
-				this.x - destw / 2, this.y - desth /2, 
+				this.x - destw / 2, this.y - desth /2,
 				destw, desth);
 	}
 	else {
@@ -953,7 +953,7 @@ Jigsaw.object.StaticText.prototype._render_ = function(ctx, dx, dy){
 		ctx.strokeStyle = this.stroke_color;
 		ctx.strokeText(this.text, -this.width/2, this.height/2);
 	}
-	
+
 	iter = this.sfx.divide;
 	while (iter !== this.sfx.tail) {
 		iter.f();
